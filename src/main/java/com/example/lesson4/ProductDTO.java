@@ -17,10 +17,11 @@ public class ProductDTO {
     private String origin;
 
 
-    public ProductDTO(String productTitle, long id, int cost){
+    public ProductDTO(String productTitle, long id, int cost, int amount){
         this.productTitle = productTitle;
         this.id = id;
         this.cost = cost;
+        this.amount = amount;
 
     }
 

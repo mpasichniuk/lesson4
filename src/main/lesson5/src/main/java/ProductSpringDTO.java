@@ -2,17 +2,30 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+@Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "products")
+@NamedQueries({
+        @NamedQuery(name = "findAllProducts", query = "Select u from Products u"),
+        @NamedQuery(name = "countAllProducts", query = "Select count(u) from Products u"),
+        @NamedQuery(name = "deleteProductById", query = "delete from Products u where u.id = :id")
+})
 public class ProductSpringDTO {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
+    @Column(nullable = false, unique = true)
     private String productTitle;
+    @Column(nullable = false, unique = true)
     private int cost;
     private int amount;
     private String origin;

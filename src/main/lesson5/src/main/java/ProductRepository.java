@@ -40,7 +40,7 @@ public class ProductRepository {
     }
 
     public void delete(long id) {
-        executeInTransaction(entityManager -> entityManager.createNamedQuery("deleteUserById")
+        executeInTransaction(entityManager -> entityManager.createNamedQuery("deleteProductById")
                 .setParameter("id", id)
                 .executeUpdate());
     }

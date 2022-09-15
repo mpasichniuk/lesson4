@@ -2,17 +2,17 @@ package com.example.lesson4;
 
 import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductDTO {
     private Long id;
-    @NonNull
-    private String productTitle;
-    @JsonIgnore
-    private int cost;
     @NotBlank
+    private String productTitle;
+    private int cost;
     private int amount;
     private String origin;
 

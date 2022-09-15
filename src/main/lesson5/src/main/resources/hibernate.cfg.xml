@@ -16,10 +16,9 @@
         <property name="hibernate.format_sql">true</property>
 
         <mapping class="java.ProductSpringDTO"/>
-        <mapping class="java.Contact"/>
+        <mapping class="java.CustomerContact"/>
         <mapping class="java.Customer"/>
         <mapping class="java.Role"/>
         <mapping class="java.LineItem"/>
-        <mapping class="java.Product"/>
     </session-factory>
 </hibernate-configuration>

@@ -17,7 +17,7 @@ public class CustomerContact {
 
         @Column(nullable = false)
         @Enumerated(EnumType.STRING)
-        private ContactType type;
+        private CustomerContactType type;
 
         @Column(nullable = false)
         private String value;
@@ -25,7 +25,7 @@ public class CustomerContact {
         @ManyToOne
         private ProductSpringDTO productSpringDTO;
 
-        public CustomerContact(ContactType type, String value) {
+        public CustomerContact(CustomerContactType type, String value) {
             this.type = type;
             this.value = value;
         }

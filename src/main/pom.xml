@@ -5,6 +5,8 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>lesson5</module>
+        <module>lesson10</module>
+		<module>frontend</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>

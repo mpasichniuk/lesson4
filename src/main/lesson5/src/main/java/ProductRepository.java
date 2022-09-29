@@ -1,5 +1,3 @@
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import java.util.List;
@@ -7,11 +5,15 @@ import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class ProductRepository {
-    private final EntityManagerFactory emFactory;
+public abstract class ProductRepository {
+    private EntityManagerFactory emFactory;
 
     public ProductRepository(EntityManagerFactory emFactory) {
         this.emFactory = emFactory;
+    }
+
+    public ProductRepository() {
+
     }
 
     public Optional<ProductSpringDTO> findById(long id) {
@@ -66,5 +68,13 @@ public class ProductRepository {
             em.close();
         }
     }
+
+    public ProductSpringDTO findProductSpringDTOById(Long productSpringDTOId) {
+
+
+        return null;
+    }
+
+    public abstract void addProductSpringDTO(Long id, ProductSpringDTO productSpring);
 }
 

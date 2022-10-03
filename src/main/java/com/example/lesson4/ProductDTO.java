@@ -3,6 +3,7 @@ package com.example.lesson4;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -49,6 +50,7 @@ public class ProductDTO {
 
     public void put(Long id, ProductDTO products) {
     }
+    private Set<Role> roles;
 }
 
 

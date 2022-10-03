@@ -1,6 +1,7 @@
 package com.example.lesson4;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
@@ -8,7 +9,14 @@ import org.springframework.stereotype.Repository;
 
 import java.awt.print.Pageable;
 
-public class ProductRep {@Repository
+public class ProductRep {
+    public ProductDTOMapping productsByFilter(String productTitleFilter, String costFilter, PageRequest of) {
+    }
+
+    public void save(ProductDTO map) {
+    }
+
+    @Repository
     public interface ProductRepository extends JpaRepository<ProductDTO, Long>, QuerydslPredicateExecutor<ProductDTO> {
 
         Page<ProductDTO> findAllByProductTitleLike(String productDTOFilter, Pageable pageable);

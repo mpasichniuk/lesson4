@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:replace="fragments/head.html :: head">
 
@@ -44,6 +44,23 @@
     <div class="col-12">
       <table class="table table-bordered my-2">
         <thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+          <th scope="row" th:text="${user.id}">1</th>
+          <td th:text="${user.username}">Alex</td>
+          <td th:text="${user.email}">example@mail.com</td>
+          <td sec:authorize="hasAnyRole('ADMIN')">
+          <th scope="row" th:text="${user.id}">2</th>
+          <td th:text="${user.username}">John</td>
+          <td th:text="${user.email}">john@mail.com</td>
+          <td sec:authorize="hasAnyRole('Manager')">
+            <a class="btn btn-success" th:href="@{/user/{id}(id = ${user.id})}"><i class="fas fa-edit"></i></a>
+            <form class="d-inline" th:method="delete" th:action="@{/user/{id}/(id = ${user.id})}">
+              <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+            </form>
+          </td>
+        </tr>
+        </tbody>
         <tr>
           <th th:replace="fragments/sort_header.html :: sort_header('Id', 'id')"></th>
           <th th:replace="fragments/sort_header.html :: sort_header('Product Title', 'productTitle')"></th>
@@ -66,6 +83,7 @@
         </tbody>
       </table>
     </div>
+
     <div th:unless="${products.isEmpty()}" class="col-12">
       <nav aria-label="Page navigation example">
         <ul class="pagination">

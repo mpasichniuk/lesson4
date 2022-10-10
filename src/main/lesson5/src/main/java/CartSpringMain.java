@@ -37,7 +37,7 @@ public class CartSpringMain {
                 }
                 case "delete": {
                     if (cartSpringService == null) {
-                        System.out.println("Create Cart!");
+                        System.out.println("Create cart!");
                         break;
                     }
                     System.out.print("Enter product id you want to delete: ");
